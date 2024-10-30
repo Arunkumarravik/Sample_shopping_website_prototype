@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Output Data</h2>
+    <div class="output-container">
+        <div class="output-tab" onclick="showTotalUsers()">Total Users</div>
+        <div class="output-tab" onclick="showTotalMoney()">Total Money Received</div>
+    </div>
+
+    <div id="output" style="margin-top: 30px; font-size: 18px; font-weight: bold;"></div>
+
+    <script>
+        function showTotalUsers() {
+            // Mock data; replace this with an actual request to fetch data
+            document.getElementById('output').innerText = "Total Users: 125"; 
+        }
+
+        function showTotalMoney() {
+            // Mock data; replace this with an actual request to fetch data
+            document.getElementById('output').innerText = "Total Money Received: $25,000"; 
+        }
+    </script>
+</body>
+</html>
