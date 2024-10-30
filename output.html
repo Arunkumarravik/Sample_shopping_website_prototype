@@ -9,13 +9,13 @@
 <body>
     <h2>Output Data</h2>
     <div class="output-container">
-        <div class="output-tab" onclick="showTotalUsers()">Total Users</div>
-        <div class="output-tab" onclick="showTotalMoney()">Total Money Received</div>
+        <div class="output-tab" id="get_count">Total Users</div>
+        <div class="output-tab" id="get_total">Total Money Received</div>
     </div>
 
     <div id="output" style="margin-top: 30px; font-size: 18px; font-weight: bold;"></div>
 
-    <script>
+    <script src="app.js">
         function showTotalUsers() {
             // Mock data; replace this with an actual request to fetch data
             document.getElementById('output').innerText = "Total Users: 125"; 
