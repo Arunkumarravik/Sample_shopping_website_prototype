@@ -1,3 +1,6 @@
+const path = window.location.pathname;
+
+if( path.includes('input.html')){
 document.getElementById('dataForm').addEventListener('submit', async function (event) {
     event.preventDefault()
 
@@ -18,7 +21,7 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
     };
 
     try {
-        const response = await fetch('https://t4n7euvfyc.execute-api.us-east-1.amazonaws.com/practice_stage/pro', {
+        const response = await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/post_data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,19 +39,45 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
         alert("Failed to submit data.");
     }
 });
+}
 
+if (path.includes('output.html')){
 
-document.getElementById('get_count').addEventListener('onclick', async function (event) {
+    document.getElementById('get_count').addEventListener('click', async function (event) {
     event.preventDefault()
+    console.log('iguchi')
 
-    const data=await fetch('https://t4n7euvfyc.execute-api.us-east-1.amazonaws.com/practice_stage/get-data',{
+    const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
         method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
     })
+
+    const data=await response.json();
+
+    const item=JSON.parse(data.body);
+
+    document.getElementById('output').innerText = item["Count_users"]; 
 });
 
-document.getElementById('get_total').addEventListener('onclick', async function (event) {
-    
+document.getElementById('get_total').addEventListener('click', async function (event) {
+    event.preventDefault()
+
+    const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
+        method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+    })
+
+    const data=await response.json();
+
+    console.log(data);
+
+    const item=JSON.parse(data.body);
+
+    document.getElementById('output').innerText = item["Sum_vaule"]; 
 });
+
+}
