@@ -30,6 +30,8 @@
             // Check if 'access_token' exists in the hash
             const access_Token = params.get("access_token");
 
+            console.log(access_Token);
+
             if (access_Token) {
             
                 sessionStorage.setItem("accessToken", access_Token);
