@@ -1,4 +1,6 @@
 const path = window.location.pathname;
+// Retrieve the token from sessionStorage
+const accessToken = sessionStorage.getItem("accessToken");
 
 if( path.includes('input.html')){
 document.getElementById('dataForm').addEventListener('submit', async function (event) {
@@ -24,7 +26,8 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
         const response = await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/post_data', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${accessToken}`
             },
             body: JSON.stringify(data)
         });
@@ -50,7 +53,8 @@ if (path.includes('output.html')){
     const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
         method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${accessToken}`
             }
     })
 
@@ -67,7 +71,8 @@ document.getElementById('get_total').addEventListener('click', async function (e
     const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
         method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${accessToken}`
             }
     })
 

@@ -6,6 +6,34 @@
     <title>Data Entry App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<script>
+
+    function storeTokenFromUrl() {
+     
+        const hash = window.location.hash;
+
+        if (hash) {
+            // Use URLSearchParams to parse the hash
+            const params = new URLSearchParams(hash.substring(1)); // remove the '#' at the start
+
+            // Check if 'access_token' exists in the hash
+            const accessToken = params.get("access_token");
+
+            if (accessToken) {
+            
+                sessionStorage.setItem("accessToken", access_token);
+                console.log("Access token stored in sessionStorage:", access_token);
+
+            } else {
+                console.log("No access token found in the URL.");
+            }
+        } else {
+            console.log("No hash present in the URL.");
+        }
+    }
+
+    window.onload = storeTokenFromUrl;
+</script>
 <body>
     <div class="container">
         <div class="icon" onclick="location.href='input.html'">Input Data</div>
