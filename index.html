@@ -30,10 +30,10 @@
             // Check if 'access_token' exists in the hash
             const access_Token = params.get("access_token");
 
-            if (accessToken) {
+            if (access_Token) {
             
-                sessionStorage.setItem("accessToken", access_token);
-                console.log("Access token stored in sessionStorage:", access_token);
+                sessionStorage.setItem("accessToken", access_Token);
+                console.log("Access token stored in sessionStorage:", access_Token);
 
             } else {
                 console.log("No access token found in the URL.");
