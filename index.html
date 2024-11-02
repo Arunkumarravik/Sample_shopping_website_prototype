@@ -3,51 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Entry App</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
-
 <body>
-    <h2>Milk Form</h2>
 
-    <div class="container">
-        <div class="icon" onclick="location.href='input.html'">Input Data</div>
-        <div class="icon" onclick="location.href='output.html'">Output Data</div>
+    <!-- Toggle Button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="data-used-for.html">Data Used For</a>
+        <a href="sign-out.html">Sign Out</a>
     </div>
-</body>
-<script>
 
-    function storeTokenFromUrl() {
+    <!-- Main Content Area -->
+    <div class="content">
+        <div class="container">
+            <div class="icon" onclick="location.href='input.html'">Input Data</div>
+            <div  class="icon" onclick="location.href='output.html'">Output Data</div>
+        </div>
+    </div>
+
+    <!-- JavaScript for toggle functionality -->
+    <script>
+
+function storeTokenFromUrl() {
      
-        const hash = window.location.hash;
+     const hash = window.location.hash;
 
-        console.log(hash)
+     console.log(hash)
 
-        if (hash) {
-            // Use URLSearchParams to parse the hash
-            const params = new URLSearchParams(hash.substring(1)); // remove the '#' at the start
+     if (hash) {
+         // Use URLSearchParams to parse the hash
+         const params = new URLSearchParams(hash.substring(1)); // remove the '#' at the start
 
-            // Check if 'access_token' exists in the hash
-            const access_Token = params.get("access_token");
+         // Check if 'access_token' exists in the hash
+         const access_Token = params.get("access_token");
 
-            console.log(access_Token);
+         console.log(access_Token);
 
-            if (access_Token) {
-            
-                sessionStorage.setItem("accessToken", access_Token);
-                console.log("Access token stored in sessionStorage:", access_Token);
+         if (access_Token) {
+         
+             sessionStorage.setItem("accessToken", access_Token);
+             console.log("Access token stored in sessionStorage:", access_Token);
 
-            } else {
-                console.log("No access token found in the URL.");
-            }
-        } else {
-            console.log("No hash present in the URL.");
+         } else {
+             console.log("No access token found in the URL.");
+         }
+     } else {
+         console.log("No hash present in the URL.");
+     }
+ }
+
+ document.addEventListener("DOMContentLoaded", storeTokenFromUrl);
+
+ console.log("logging enabled")
+
+ function toggleSidebar() {
+         const sidebar = document.getElementById("sidebar");
+         const content=document.getElementById("content");
+         sidebar.classList.toggle("active");
+          
+ }
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
         }
-    }
+    </script>
 
-    document.addEventListener("DOMContentLoaded", storeTokenFromUrl);
-
-    console.log("logging enabled")
-
-</script>
+</body>
 </html>

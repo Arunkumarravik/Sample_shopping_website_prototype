@@ -1,3 +1,67 @@
+/* Sidebar styling */
+div {
+
+    display: block;
+
+    unicode-bidi: isolate;
+}
+.sidebar {
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden to the left */
+    background-color: #333;
+    padding-top: 100px;
+    color: white;
+    transition: left 0.3s ease; /* Smooth transition for toggling */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.sidebar.active {
+    left: 0; /* Shows the sidebar when active */
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 15px;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+/* Main content styling */
+.content {
+    padding: 100px 0px 0px 300px;
+}
+
+/* Toggle button styling */
+.toggle-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001; /* Make sure it stays on top */
+}
+
+.toggle-btn:focus {
+    outline: none;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -115,3 +179,4 @@ form button:hover {
     font-style: italic;
     color: #218838;
 }
+/*
