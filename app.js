@@ -13,6 +13,7 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
     const weight= document.getElementById('weight').value;
     const rpl= document.getElementById('num').value;
     const amount= document.getElementById('Amnt').value;
+    const spend= document.getElementById('spend').value;
 
     const data = {
         id    : parseInt(user_id),
@@ -22,7 +23,7 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
         weight:parseFloat(weight),
         rpl   : parseFloat(rpl),
         amount:parseFloat(amount),
-        spend: 50
+        spend: parseFloat(spend)
         
     };
 
