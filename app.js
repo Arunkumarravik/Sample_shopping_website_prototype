@@ -8,18 +8,24 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
 
     const user_id = document.getElementById('user_id').value;
     const user_name = document.getElementById('user_name').value;
-    const purchased_products = document.getElementById('purchased_products').value;
-    const purchased_total_value = document.getElementById('purchased_total_value').value;
-    const tsp=Date.now();
+    const milk= document.getElementById('Milk').value;
+    const fat= document.getElementById('Fat').value;
+    const weight= document.getElementById('weight').value;
+    const rpl= document.getElementById('num').value;
+    const amount= document.getElementById('Amnt').value;
+
     console.log(tsp)
     const date = new Date(tsp);
     const ds= date.toDateString();
     const data = {
-        id: parseInt(user_id),
-        ts: ds,
-        name: user_name,
-        ps: purchased_products,
-        pv: parseFloat(purchased_total_value)
+        id    : parseInt(user_id),
+        name  : user_name,
+        milk  : milk,
+        fat   :fat,
+        weight:weight,
+        rpl   : rpl,
+        amount:amount
+        
     };
 
     try {
