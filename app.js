@@ -70,19 +70,21 @@ async function fetchData() {
 
         console.log(daty);
 
-        // Loop through the JSON data and create table rows
-        daty.forEach(item => {
+        for (const [key, value] of Object.entries(daty)) {
+
             const row = tableBody.insertRow();
             const cellName = row.insertCell(0);
-            const cellAge = row.insertCell(1);
-            const cellDob = row.insertCell(2);
-            const cellPlace = row.insertCell(3);
+            const cellliter = row.insertCell(1);
+            const cellmoney = row.insertCell(2);
+            const cellspend = row.insertCell(3);
 
-            cellName.textContent = item.users;
-            cellAge.textContent = item.milk_pro;
-            cellDob.textContent = item.money; // Make sure this is in the correct format if necessary
-            cellPlace.textContent = item.spend;
-        });
+            cellName.textContent=key;
+            cellliter.textContent=key.milk_pro;
+            cellmoney.textContent=key.money;
+            cellspend.textContent=key.spend;
+        }
+
+        // Loop through the JSON data and create table rows
     } catch (error) {
         console.error('Error fetching data:', error);
     }
