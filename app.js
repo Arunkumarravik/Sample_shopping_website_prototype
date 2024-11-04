@@ -14,17 +14,14 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
     const rpl= document.getElementById('num').value;
     const amount= document.getElementById('Amnt').value;
 
-    console.log(tsp)
-    const date = new Date(tsp);
-    const ds= date.toDateString();
     const data = {
         id    : parseInt(user_id),
         name  : user_name,
         milk  : milk,
-        fat   :fat,
-        weight:weight,
-        rpl   : rpl,
-        amount:amount
+        fat   :parseFloat(fat),
+        weight:parseFloat(weight),
+        rpl   : parseFloat(rpl),
+        amount:parseFloat(amount)
         
     };
 
