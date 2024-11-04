@@ -21,7 +21,8 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
         fat   :parseFloat(fat),
         weight:parseFloat(weight),
         rpl   : parseFloat(rpl),
-        amount:parseFloat(amount)
+        amount:parseFloat(amount),
+        spend: 50
         
     };
 
@@ -49,43 +50,47 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
 
 if (path.includes('output.html')){
 
-    document.getElementById('get_count').addEventListener('click', async function (event) {
-    event.preventDefault()
-    console.log('iguchi')
-
-    const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
-        method: 'GET',
+async function fetchData() {
+    try {
+        const response = await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 "Authorization": `Bearer ${accessToken}`
             }
-    })
+        }); // Replace with your API URL
+        const data = await response.json(); // This parses the JSON data
 
-    const data=await response.json();
+        const tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
 
-    const item=JSON.parse(data.body);
+        // Clear existing data in the table
+        tableBody.innerHTML = '';
 
-    document.getElementById('output').innerText = item["Count_users"]; 
-});
+        const daty=JSON.parse(data.body);
 
-document.getElementById('get_total').addEventListener('click', async function (event) {
-    event.preventDefault()
+        console.log(daty);
 
-    const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
-        method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": `Bearer ${accessToken}`
-            }
-    })
+        // Loop through the JSON data and create table rows
+        daty.forEach(item => {
+            const row = tableBody.insertRow();
+            const cellName = row.insertCell(0);
+            const cellAge = row.insertCell(1);
+            const cellDob = row.insertCell(2);
+            const cellPlace = row.insertCell(3);
 
-    const data=await response.json();
+            cellName.textContent = item.users;
+            cellAge.textContent = item.milk_pro;
+            cellDob.textContent = item.money; // Make sure this is in the correct format if necessary
+            cellPlace.textContent = item.spend;
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
 
-    console.log(data);
+// Add an event listener to the button
+document.getElementById('get_count').addEventListener('click', fetchData);
 
-    const item=JSON.parse(data.body);
 
-    document.getElementById('output').innerText = item["Sum_vaule"]; 
-});
 
 }
