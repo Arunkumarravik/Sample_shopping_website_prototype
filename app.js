@@ -79,10 +79,10 @@ async function fetchData() {
             const cellspend = row.insertCell(3);
 
             cellName.textContent=key;
-            cellliter.textContent=key["milk_pro"]
-            cellmoney.textContent=key["money"];
-            cellspend.textContent=key["spend"];
-            console.log(key.milk_pro);
+            cellliter.textContent=daty[key]["milk_pro"]
+            cellmoney.textContent=daty[key]["money"];
+            cellspend.textContent=daty[key]["spend"];
+            console.log(daty[key]["spend"]);
         }
 
         // Loop through the JSON data and create table rows
