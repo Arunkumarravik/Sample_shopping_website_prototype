@@ -14,6 +14,12 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
     const rpl= document.getElementById('num').value;
     const amount= document.getElementById('Amnt').value;
     const spend= document.getElementById('spend').value;
+    const shift= document.getElementById('shift').value;
+    const date= document.getElementById('date').value;
+
+    console.log(shift);
+    console.log(date);
+    console.log(milk);
 
     const data = {
         id    : parseInt(user_id),
@@ -23,7 +29,9 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
         weight:parseFloat(weight),
         rpl   : parseFloat(rpl),
         amount:parseFloat(amount),
-        spend: parseFloat(spend)
+        spend: parseFloat(spend),
+        date : date,
+        shift : shift
         
     };
 

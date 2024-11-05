@@ -14,16 +14,29 @@
         <input type="text" id="user_id" required><br>
         <br>
         <label>User Name:</label><br>
-        <input type="text" id="user_name" required><br><br>
+        <input type="text" id="user_name" placeholder="Example : kumar"     required><br><br>
+
+        <label>Shift:</label><br>
+        <select id="shift" required>
+            <option> Morning </option>
+            <option>Evening </option>
+        </select><br><br>
+
+        <label>Date milk poured:</label><br>
+        <input type="datetime" id="date" placeholder="Example : 27-12-2001" required><br><br>
         
-        <label>Milk type:</label><br>
-        <input type="text" id="Milk" required><br><br>
+        <label>Milk type:</label><br> 
+        <select id="Milk" required>
+            <option>Cow</option>
+            <option>Buffalo</option>
+        </select>
+        <br><br>
         
         <label>Fat :</label><br>
-        <input type="float" id="Fat" required><br><br>
+        <input type="float" id="Fat" placeholder="Example : 4.3" required><br><br>
 
         <label>Rate per liter :</label><br>
-        <input type="float" id="num" required><br><br>
+        <input type="float" id="num" placeholder="Example : 34.33" required><br><br>
 
         <label>weight :</label><br>
         <input type="float" id="weight" required><sbr><br>
@@ -32,7 +45,7 @@
         <input type="float" id="Amnt" required><br><br>
 
         <label>Spend :</label><br>
-        <input type="float" id="spend" required><br><br>
+        <input type="float" id="spend" placeholder="Example : 250"required><br><br>
         
         <button type="float">Submit</button>
     </form>
