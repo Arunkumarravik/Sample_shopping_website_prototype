@@ -61,8 +61,25 @@ if (path.includes('output.html')){
 
 async function fetchData() {
     try {
+        let fromdate=document.getElementById('from-date').value;
+        let todate=document.getElementById('to-date').value;
+
+        const today = new Date().toISOString().split("T")[0];
+        const startdate=new Date('2024-09-11').toISOString().split("T")[0];
+
+        if(!fromdate){
+            fromdate=startdate;
+        }
+        if(!todate){
+
+            todate=today;
+        }
+
+        console.log(fromdate);
+        console.log(todate);
+
         const response = await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 "Authorization": `Bearer ${accessToken}`
