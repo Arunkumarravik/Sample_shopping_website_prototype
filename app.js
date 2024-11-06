@@ -78,12 +78,18 @@ async function fetchData() {
         console.log(fromdate);
         console.log(todate);
 
+        const dat = {
+            start_date :fromdate,
+            end_date   :todate
+        };
+
         const response = await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 "Authorization": `Bearer ${accessToken}`
-            }
+            },
+            body: JSON.stringify(dat)
         }); // Replace with your API URL
         const data = await response.json(); // This parses the JSON data
 
