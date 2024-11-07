@@ -1,7 +1,7 @@
 const path = window.location.pathname;
 // Retrieve the token from sessionStorage
 const accessToken = sessionStorage.getItem("accessToken");
-
+const username  = sessionStorage.getItem("username");
 if( path.includes('input.html')){
 document.getElementById('dataForm').addEventListener('submit', async function (event) {
     event.preventDefault()
@@ -80,7 +80,8 @@ async function fetchData() {
 
         const dat = {
             start_date :fromdate,
-            end_date   :todate
+            end_date   :todate,
+            user_name : username
         };
 
         const response = await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/get_data',{

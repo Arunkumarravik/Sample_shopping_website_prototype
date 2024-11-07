@@ -53,6 +53,8 @@ function storeTokenFromUrl() {
           document.getElementById('username').textContent = username; // Display on webpage
         })
         .catch(err => console.log("Error:", err));
+
+        sessionStorage.setItem("username", username);
       
 
 }
