@@ -50,15 +50,15 @@ function storeTokenFromUrl() {
       getUsername(access_Token)
         .then(username => {
           console.log("Username:", username);
+          sessionStorage.setItem("username", username);
           document.getElementById('username').textContent = username; // Display on webpage
         })
         .catch(err => console.log("Error:", err));
 
-        sessionStorage.setItem("username", username);
+        
       
 
 }
-
 document.addEventListener("DOMContentLoaded", storeTokenFromUrl);
 
 console.log("logging enabled")
