@@ -35,7 +35,7 @@ function storeTokenFromUrl() {
         console.log("No hash present in the URL.");
     }
 
-    
+
     const params = new URLSearchParams(hash.substring(1));
 
     const access_Token = params.get("access_token");
