@@ -6,6 +6,7 @@
     <title>Data-entry</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
+</script>
 <body>
 
     <!-- Toggle Button -->
@@ -19,6 +20,10 @@
         <a href="sign-out.html">Sign Out</a>
     </div>
 
+    <div class="center-con">
+        <h2> Hi <span id="username"></span> ! welcome our site</h2>
+    </div>
+
     <!-- Main Content Area -->
     <div class="content">
         <div class="container">
@@ -28,47 +33,8 @@
     </div>
 
     <!-- JavaScript for toggle functionality -->
-    <script>
 
-function storeTokenFromUrl() {
-     
-     const hash = window.location.hash;
-
-     console.log(hash)
-
-     if (hash) {
-         // Use URLSearchParams to parse the hash
-         const params = new URLSearchParams(hash.substring(1)); // remove the '#' at the start
-
-         // Check if 'access_token' exists in the hash
-         const access_Token = params.get("access_token");
-
-         console.log(access_Token);
-
-         if (access_Token) {
-         
-             sessionStorage.setItem("accessToken", access_Token);
-             console.log("Access token stored in sessionStorage:", access_Token);
-
-         } else {
-             console.log("No access token found in the URL.");
-         }
-     } else {
-         console.log("No hash present in the URL.");
-     }
- }
-
- document.addEventListener("DOMContentLoaded", storeTokenFromUrl);
-
- console.log("logging enabled")
-
- function toggleSidebar() {
-         const sidebar = document.getElementById("sidebar");
-         const content=document.getElementById("content");
-         sidebar.classList.toggle("active");
-          
- }
- </script>
-
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1164.0.min.js"></script>
+<script src="index_app.js"></script>
 </body>
 </html>
