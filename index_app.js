@@ -34,6 +34,11 @@ function storeTokenFromUrl() {
     else {
         console.log("No hash present in the URL.");
     }
+
+    
+    const params = new URLSearchParams(hash.substring(1));
+
+    const access_Token = params.get("access_token");
     const getUsername = (accessToken) => {
         return new Promise((resolve, reject) => {
           cognito.getUser({ AccessToken: accessToken }, (err, data) => {
