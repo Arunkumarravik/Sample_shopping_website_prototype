@@ -57,7 +57,7 @@ async function storeTokenFromUrl() {
     //Getting the username with help of accessToken
     const accessToken = sessionStorage.getItem("accessToken");
     const username  = sessionStorage.getItem("username");
-
+    
     dat={
 
         user_name:username
@@ -79,6 +79,8 @@ async function storeTokenFromUrl() {
       console.log(item);
 
       const data=JSON.parse(item.body);
+
+      console.log(data);
 
       if (data.farmer_id==0){
 
