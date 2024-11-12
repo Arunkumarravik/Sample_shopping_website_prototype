@@ -61,7 +61,7 @@ async function storeTokenFromUrl() {
     dat={
 
         'username':username
-    }
+    };
 
       const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/check_farmer_id',{
         method: 'POST',
@@ -72,7 +72,11 @@ async function storeTokenFromUrl() {
             body: JSON.stringify(dat)
       })
 
+      console.log(response.ok);
+
       const item=await response.json();
+
+      console.log(item);
 
       const data=JSON.parse(item.body);
 
