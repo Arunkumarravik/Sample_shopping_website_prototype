@@ -70,7 +70,7 @@ async function storeTokenFromUrl() {
                 "Authorization": `Bearer ${accessToken}`
             },
             body: JSON.stringify(dat)
-      })
+      });
 
       console.log(response.ok);
 
