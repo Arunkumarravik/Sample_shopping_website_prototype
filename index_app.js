@@ -84,7 +84,7 @@ async function storeTokenFromUrl() {
 
       if (data.farmer_id==0){
 
-        let ele=document.getElementById('farmer-id');
+        let ele=document.getElementById('farmer_id');
 
         ele.innerHTML=`<form id="dataForm">
         <h2 > Enter the farmer Id before inputing the data</h2>
@@ -100,7 +100,7 @@ async function storeTokenFromUrl() {
 
       }
 
-      
+
       if(data.farmer_id!=0){
         let ele=document.getElementById('farmer_id');
 
