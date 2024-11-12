@@ -69,7 +69,7 @@ async function storeTokenFromUrl() {
                 'Content-Type': 'application/json',
                 "Authorization": `Bearer ${accessToken}`
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(dat)
       })
 
       const item=await response.json();
