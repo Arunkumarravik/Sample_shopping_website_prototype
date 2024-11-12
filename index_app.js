@@ -58,6 +58,11 @@ async function storeTokenFromUrl() {
     const accessToken = sessionStorage.getItem("accessToken");
     const username  = sessionStorage.getItem("username");
 
+    dat={
+
+        'username':username
+    }
+
       const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/check_farmer_id',{
         method: 'POST',
             headers: {
