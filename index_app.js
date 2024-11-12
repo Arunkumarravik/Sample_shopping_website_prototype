@@ -100,6 +100,7 @@ async function storeTokenFromUrl() {
 
       }
 
+      
       if(data.farmer_id!=0){
         let ele=document.getElementById('farmer_id');
 
