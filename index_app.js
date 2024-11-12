@@ -86,18 +86,27 @@ async function storeTokenFromUrl() {
 
         let ele=document.getElementById('farmer_id');
 
-        ele.innerHTML=`<form id="dataForm">
-        <h2 > Enter the farmer Id before inputing the data</h2>
-        <label>Farmer ID:</label><br>
-        <input type="text" id="user_id" required><br>
-        <br>
-         <button type="float">Submit</button>
-    </form>
-`;
-        const farmer_id=document.getElementById('user_id').value;
-        sessionStorage.setItem("farmer_id",farmer_id);
-        alert('please , enter one entry in input data page for saving the farmer-id');
-
+        ele.innerHTML=`<div class="form-container">
+                <label for="farmer_id">Enter the farmer id:</label>
+                <input type="text" id="farmer" placeholder="Enter the farmer_id">
+                
+                
+                <button onclick="submitForm()">Submit</button>
+              </div>`;
+              function submitForm() {
+                const farmerId = document.getElementById('farmer').value;
+            
+                if (!farmerId) {
+                  alert("Please enter a farmer ID.");
+                  return;
+                }
+                else{
+                    sessionStorage.setItem("farmer_id",farmerId);
+                    ele.innerHTML=`<h2>Farmer_id : "${farmerId}" </h2>`;
+                }
+            } 
+        
+        
       }
 
 
