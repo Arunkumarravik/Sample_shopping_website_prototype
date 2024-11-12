@@ -5,7 +5,7 @@ const cognito = new AWS.CognitoIdentityServiceProvider();
 
 
 
-function storeTokenFromUrl() {
+async function storeTokenFromUrl() {
 
     //HASHING PART
      
@@ -37,7 +37,7 @@ function storeTokenFromUrl() {
 
 
     const params = new URLSearchParams(hash.substring(1));
-
+    //getting the accesstoken
     const access_Token = params.get("access_token");
     const getUsername = (accessToken) => {
         return new Promise((resolve, reject) => {
@@ -53,10 +53,49 @@ function storeTokenFromUrl() {
           sessionStorage.setItem("username", username);
           document.getElementById('username').textContent = username; // Display on webpage
         })
-        .catch(err => console.log("Error:", err));
+        .catch(err => console.log("Error:", err)); 
+    //Getting the username with help of accessToken
+    const accessToken = sessionStorage.getItem("accessToken");
+    const username  = sessionStorage.getItem("username");
 
-        
-      
+      const response=await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/check_farmer_id',{
+        method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${accessToken}`
+            },
+            body: JSON.stringify(data)
+      })
+
+      const item=await response.json();
+
+      const data=JSON.parse(item.body);
+
+      if (data.farmer_id==0){
+
+        let ele=document.getElementById('farmer-id');
+
+        ele.innerHTML=`<form id="dataForm">
+        <h2 > Enter the farmer Id before inputing the data</h2>
+        <label>Farmer ID:</label><br>
+        <input type="text" id="user_id" required><br>
+        <br>
+         <button type="float">Submit</button>
+    </form>
+`;
+        const farmer_id=document.getElementById('user_id').value;
+        sessionStorage.setItem("farmer_id",farmer_id);
+        alert('please , enter one entry in input data page for saving the farmer-id');
+
+      }
+
+      if(data.farmer_id!=0){
+        let ele=document.getElementById('farmer-id');
+
+        ele.innerHTML=`<h2>Farmer_id : "${data.farmer_id}" </h2>`;
+        sessionStorage.setItem("farmer_id", data.farmer_id);
+
+      }
 
 }
 document.addEventListener("DOMContentLoaded", storeTokenFromUrl);

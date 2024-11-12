@@ -2,12 +2,13 @@ const path = window.location.pathname;
 // Retrieve the token from sessionStorage
 const accessToken = sessionStorage.getItem("accessToken");
 const username  = sessionStorage.getItem("username");
+const user_id=sessionStorage.getItem("farmer_id");
+
+
 if( path.includes('input.html')){
 document.getElementById('dataForm').addEventListener('submit', async function (event) {
     event.preventDefault()
 
-    const user_id = document.getElementById('user_id').value;
-    const user_name = document.getElementById('user_name').value;
     const milk= document.getElementById('Milk').value;
     const fat= document.getElementById('Fat').value;
     const weight= document.getElementById('weight').value;
@@ -23,7 +24,7 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
 
     const data = {
         id    : parseInt(user_id),
-        name  : user_name,
+        name  : username,
         milk  : milk,
         fat   :parseFloat(fat),
         weight:parseFloat(weight),
@@ -34,6 +35,11 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
         shift : shift
         
     };
+
+    if (user_id==null){
+        alert("please enter the farmer-id ");
+    }
+    else{
 
     try {
         const response = await fetch('https://bvbfwuacy7.execute-api.us-east-1.amazonaws.com/Dev_env/post_data', {
@@ -54,6 +60,7 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
         console.error("Error:", error);
         alert("Failed to submit data.");
     }
+}
 });
 }
 
