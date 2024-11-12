@@ -93,18 +93,7 @@ async function storeTokenFromUrl() {
                 
                 <button onclick="submitForm()">Submit</button>
               </div>`;
-              function submitForm() {
-                const farmerId = document.getElementById('farmer').value;
-            
-                if (!farmerId) {
-                  alert("Please enter a farmer ID.");
-                  return;
-                }
-                else{
-                    sessionStorage.setItem("farmer_id",farmerId);
-                    ele.innerHTML=`<h2>Farmer_id : "${farmerId}" </h2>`;
-                }
-            } 
+              
         
         
       }
