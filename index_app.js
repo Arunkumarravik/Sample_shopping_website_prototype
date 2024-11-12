@@ -101,7 +101,7 @@ async function storeTokenFromUrl() {
       }
 
       if(data.farmer_id!=0){
-        let ele=document.getElementById('farmer-id');
+        let ele=document.getElementById('farmer_id');
 
         ele.innerHTML=`<h2>Farmer_id : "${data.farmer_id}" </h2>`;
         sessionStorage.setItem("farmer_id", data.farmer_id);
